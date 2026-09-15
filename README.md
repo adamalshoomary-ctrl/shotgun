@@ -40,6 +40,14 @@ That is the [Agent Skills](https://agentskills.io) installer, and it knows where
 Code, Codex, Cursor, Gemini CLI, OpenCode and around seventy other agents keep their
 skills. Add `--global` to install it for every project rather than this one.
 
+In Claude Code you can install it as a plugin instead, which also puts it in the
+Discover tab:
+
+```
+/plugin marketplace add adamalshoomary-ctrl/shotgun
+/plugin install shotgun@shotgun
+```
+
 Without node, or if you would rather read the script first:
 
 ```sh

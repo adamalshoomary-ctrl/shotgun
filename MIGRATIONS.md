@@ -21,6 +21,20 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.7 (2026-09-15)
+
+Distribution only. The repository gained `.claude-plugin/marketplace.json` and
+`.claude-plugin/plugin.json`, so Claude Code users can install it with
+`/plugin marketplace add adamalshoomary-ctrl/shotgun` and find it in the Discover tab.
+
+`skills/handoff/SKILL.md` is a symlink to the root `SKILL.md`, which the plugin format
+requires and the `npx skills` resolver does not. One real file, two paths to it, so
+neither copy can drift from the other.
+
+No project file changes, and nothing about the skill's behaviour changed.
+
+---
+
 ## 2.6 (2026-09-15)
 
 `project-context/LEARNING.md` must be replaced with the starter's copy. The level 2
