@@ -8,8 +8,11 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent, WebFetch, WebSearch
 
 # Handoff
 
-The command is `$0`. Any second word is `$1`. With no argument, infer the command
-from the conversation and say which one you chose before acting.
+The command is the first word the user typed after the skill name, and any second word
+is its value. Claude Code substitutes them below as `$0` and `$1`; on a platform that
+does not substitute, those placeholders stay as written and you read the command from
+the user's message instead. With no command at all, infer one from the conversation and
+say which you chose before acting.
 
 The `.md` files in the project are the source of truth. This skill routes to them
 and adds nothing of its own. A project opened in Codex, Cursor or any other tool
@@ -40,11 +43,11 @@ stop. Write nothing.
 
 ## learn
 
-`$1` is the level. Accept `0`, `1` and `2`.
+The value is the level. Accept `0`, `1` and `2`.
 
 Set the `Learning mode:` line in AGENTS.md to that number, then confirm what changed
-in one sentence. When `$1` is missing, report the current level and describe the
-three levels in one sentence each.
+in one sentence. With no level given, report the current one and describe the three
+levels in one sentence each.
 
 Level 0 writes nothing. Level 1 writes an explainer file per completed item. Level 2
 writes the explainer, then asks two or three questions and waits once.
@@ -84,8 +87,8 @@ for the structure and the length rule, then write to
 
 ## Always
 
-Ask in rounds, with `AskUserQuestion`, for as long as another round would change what
-you build. Ask at setup, before starting a queue item, and the moment a mid-task
+Ask in rounds, using the platform's structured question tool, for as long as another
+round would change what you build. Ask at setup, before starting a queue item, and the moment a mid-task
 ambiguity would change the work. Ask nothing the source or the startup files answer.
 Give every option a named consequence. When the owner says go, start.
 

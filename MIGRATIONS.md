@@ -21,6 +21,19 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.4 (2026-09-15)
+
+The skill moved from `.claude/skills/handoff/` to `skill/handoff/` in the repository,
+and `install.sh` now copies it into `~/.claude/skills/` and `~/.agents/skills/` so
+Claude Code, Codex and the other Agent Skills adopters all find it. Tell the owner to
+run the installer once and restart their agent. Any old copy under a project's
+`.claude/skills/handoff/` can be deleted; the installed personal copy replaces it.
+
+The skill body no longer depends on `$0` substitution, which only Claude Code performs.
+No project file changes.
+
+---
+
 ## 2.3 (2026-09-15)
 
 `project-context/ORCHESTRATION.md` was restructured and must be replaced with the

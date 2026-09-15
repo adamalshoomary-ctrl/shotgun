@@ -7,8 +7,9 @@ project-purpose.md
 improvement-plan.md
 learning/
 
-# Local machine settings. The skill at .claude/skills/handoff stays tracked, because
-# it is part of the kit.
-.claude/settings.local.json
+# Local machine settings. The skill at skill/handoff stays tracked, because it is the
+# thing being published.
+.claude/
+.codex/
 
 .DS_Store
