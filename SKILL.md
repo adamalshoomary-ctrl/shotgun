@@ -67,11 +67,20 @@ Bring a project set up under an older version of this system up to the current o
    `project-context/LEARNING.md`, `project-context/ORCHESTRATION.md`. Ignore
    everything written underneath a heading; that is the owner's project, and none of
    it is yours to reconcile.
-3. Read `MIGRATIONS.md`, and only the blocks above the project's recorded version.
+3. Match on meaning, and never on characters. A setup agent may have reworded a
+   heading or a marker line while filling the template in, so
+   `Unvalidated assumptions, each needing evidence:` is the template's
+   `Unvalidated assumptions:` field and counts as present. Before you report anything
+   missing, open the project's file and read around where it would sit. Report it only
+   when nothing there serves the same purpose. A field the owner deliberately answered
+   "none" is present. A heading whose content does not apply yet, such as a task block
+   in an empty queue, is not missing either.
+4. Read `MIGRATIONS.md`, and only the blocks above the project's recorded version.
    Those carry the changes structure cannot show.
-4. Present a plan: which file, which section or file is missing, what you would add,
-   and which values the owner has to choose. Then stop and wait.
-5. On go, apply it, ask the owner for any value a migration block says to ask for,
+5. Present a plan: which file, which section or file is missing, what you would add,
+   and which values the owner has to choose. Name anything you checked and judged
+   present under different wording, so the owner can correct you. Then stop and wait.
+6. On go, apply it, ask the owner for any value a migration block says to ask for,
    and set the version line to the starter's version.
 
 Add and ask. Never rewrite existing content, never reorder a queue, and never touch

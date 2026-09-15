@@ -2,18 +2,25 @@
 # Installs the handoff skill for every coding agent on this machine that reads the
 # Agent Skills standard. One SKILL.md, copied to each platform's own directory.
 #
-#   sh install.sh                    from a clone
+# Most people should use the ecosystem installer instead:
+#
+#   npx skills add adamalshoomary-ctrl/shotgun
+#
+# This script exists for anyone without node, or who would rather read the thing
+# before running it:
+#
+#   sh install.sh                           from a clone
 #   curl -fsSL <raw url>/install.sh | sh    without one
 set -e
 
 REPO="https://raw.githubusercontent.com/adamalshoomary-ctrl/shotgun/main"
-SRC="$(dirname "$0")/skill/handoff/SKILL.md"
+SRC="$(dirname "$0")/SKILL.md"
 
 TMP=""
 if [ ! -f "$SRC" ]; then
   TMP="$(mktemp -d)"
   SRC="$TMP/SKILL.md"
-  curl -fsSL "$REPO/skill/handoff/SKILL.md" -o "$SRC"
+  curl -fsSL "$REPO/SKILL.md" -o "$SRC"
 fi
 
 # Claude Code reads ~/.claude/skills. Codex, Gemini CLI, Copilot, Cursor and the rest

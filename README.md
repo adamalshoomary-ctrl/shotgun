@@ -32,18 +32,22 @@ on your work.
 
 ## Install
 
-One command. It writes the same skill file into every location your agents look in.
+```sh
+npx skills add adamalshoomary-ctrl/shotgun
+```
+
+That is the [Agent Skills](https://agentskills.io) installer, and it knows where Claude
+Code, Codex, Cursor, Gemini CLI, OpenCode and around seventy other agents keep their
+skills. Add `--global` to install it for every project rather than this one.
+
+Without node, or if you would rather read the script first:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/adamalshoomary-ctrl/shotgun/main/install.sh | sh
 ```
 
-Or clone the repository and run `sh install.sh` from inside it.
-
-Skills are an [open standard](https://agentskills.io) that Claude Code, Codex, Gemini
-CLI, Copilot, Cursor and around twenty other tools all read. They disagree only about
-which directory to look in, so the installer writes to both `~/.claude/skills/` and
-`~/.agents/skills/`.
+That one writes the same file into `~/.claude/skills/` and `~/.agents/skills/`, which
+between them cover the platforms most people are on.
 
 Restart your agent afterwards, or it will not see the skill.
 

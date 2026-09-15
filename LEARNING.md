@@ -81,9 +81,48 @@ uncertain, write that it is uncertain.
 
 After writing the explainer, ask two or three questions in the conversation. Then stop and wait.
 
-Ask about judgement and consequence. "What would happen if the expiry was set to zero?" and "why
-did we store the token server-side instead of in the browser?" both teach. "What is the name of the
-function?" teaches nothing.
+### Three rules for a question
+
+**Ask about something the owner watched happen.** They sat through this session. They
+saw the thing break, saw you choose, saw the check pass. A question about that has a
+way in. A question about a general principle asks them to learn the principle and apply
+it in the same breath, which is two hard things at once and they will bounce off both.
+
+**Use the words that were used at the time.** No term the explainer has not already
+defined and no term that arrived with you. If the session called it "the warning that
+was wrong", the question says that, whatever the field calls it.
+
+**Ask what would change, and make the answer matter.** A good question has a
+consequence the owner can picture. "What happens to you after the third wrong warning?"
+teaches. "What is the name of the function?" teaches nothing, and so does anything the
+explainer answers in a sentence they can copy back.
+
+### Worked pair
+
+The same question, twice.
+
+> Bad: I argued false positives are worse than false negatives here. What is the
+> specific behaviour that makes them worse?
+
+Two terms the owner has never used, a comparison stated as a premise they have to
+accept before they can answer, and nothing from the session in it. This question was
+asked on 2026-09-15 and the owner answered "what?".
+
+> Good: Three times today the update told us a field was missing and it was sitting
+> right there in the file. If that kept happening, what do you think you would start
+> doing when it showed you the next report?
+
+Same idea. It names what they watched, it asks about them rather than about a category
+of error, and the answer is something they already know about themselves.
+
+### When the owner cannot follow the question
+
+That is your fault and you fix it on the spot. Answer all of the questions yourself, in
+the plainest language you have, and write "not answered" against each one. Log the
+cause under **Recurring gap**, naming what made the question unanswerable. Then move on.
+
+Never re-ask a reworded version in the same session. The owner has already told you the
+question missed, and asking again makes them pay twice for your mistake.
 
 When an answer is wrong or partial, correct it once, in one reply, plainly. Then continue to the
 next item. Do not re-ask, do not quiz around the edges, and do not make the owner earn their way

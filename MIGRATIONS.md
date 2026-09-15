@@ -21,6 +21,30 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.6 (2026-09-15)
+
+`project-context/LEARNING.md` must be replaced with the starter's copy. The level 2
+question rules were rewritten after the questions failed on this project's own owner,
+who could not follow them.
+
+The old file said only to ask about judgement and consequence. The new one adds three
+rules: ask about something the owner watched happen in the session, use the words used
+at the time, and make the answer matter to them. It carries a worked pair showing the
+same question asked badly and well, and it tells the agent what to do when the owner
+cannot follow a question, which is to answer it themselves and log the cause.
+
+No other project file changes.
+
+---
+
+## 2.5 (2026-09-15)
+
+`SKILL.md` moved to the repository root so `npx skills add adamalshoomary-ctrl/shotgun`
+resolves it. Nothing about the skill's content changed, and an existing install keeps
+working. No project file changes.
+
+---
+
 ## 2.4 (2026-09-15)
 
 The skill moved from `.claude/skills/handoff/` to `skill/handoff/` in the repository,
