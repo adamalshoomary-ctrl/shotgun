@@ -79,16 +79,53 @@ change for one session should say so in conversation, and you leave the file alo
 ## update
 
 Bring a project set up under an older version of this system up to the current one.
+Two things can be out of date, and this command handles both in order: the kit
+installed on this machine, then the project.
 
-1. Read `Handoff system version:` from the project's AGENTS.md, and `<kit>/VERSION`.
-   When they match, say so and stop.
-2. Compare structure, never content. For each file in `<kit>/templates/`, list the section
+### First, the kit
+
+1. Read `<kit>/VERSION`, then fetch the published one:
+
+       curl -fsSL https://raw.githubusercontent.com/adamalshoomary-ctrl/shotgun/main/VERSION
+
+   When the fetch fails, say you could not check, and carry on with the kit you have.
+   Never treat a failed check as proof the kit is current.
+
+2. When the published version is newer, say both versions plainly, show this command,
+   and wait:
+
+       npx skills add adamalshoomary-ctrl/shotgun -g
+
+   On go, run it, tell the owner to restart their agent before the new instructions
+   take effect, and carry on with the project using the kit as it is now. You are
+   executing instructions you may have just overwritten; the copy in your context is
+   the one you finish this run with, and the new one applies next session.
+
+   The owner can decline. Continue with the kit they have and say which version you
+   used.
+
+### Then, the project
+
+3. Read `Handoff system version:` from the project's AGENTS.md and compare it to
+   `<kit>/VERSION`.
+
+   Equal: say so and stop.
+
+   Project older: continue below. This is the normal case.
+
+   Project newer: stop, and do not apply anything. Downgrading a project is never what
+   the owner asked for. Before you report it, check whether the project folder itself
+   holds `templates/` and `MIGRATIONS.md`. If it does, this project is the kit's own
+   source, it is meant to run ahead of any install, and there is nothing to update; say
+   that and stop. Otherwise name the likely cause, which is a stale kit, and point at
+   the reinstall command above.
+4. Compare structure, never content. For each file in `<kit>/templates/`, list the section
    headings and marker lines the template carries, and check the project's
    corresponding file for each one. Check file presence too: `VOICE.md`,
    `project-context/LEARNING.md`, `project-context/ORCHESTRATION.md`. Ignore
    everything written underneath a heading; that is the owner's project, and none of
    it is yours to reconcile.
-3. Match on meaning, and never on characters. A setup agent may have reworded a
+5. Match on meaning, and never on characters. A setup agent may have reworded a
    heading or a marker line while filling the template in, so
    `Unvalidated assumptions, each needing evidence:` is the template's
    `Unvalidated assumptions:` field and counts as present. Before you report anything
@@ -96,12 +133,12 @@ Bring a project set up under an older version of this system up to the current o
    when nothing there serves the same purpose. A field the owner deliberately answered
    "none" is present. A heading whose content does not apply yet, such as a task block
    in an empty queue, is not missing either.
-4. Read `<kit>/MIGRATIONS.md`, and only the blocks above the project's recorded version.
+6. Read `<kit>/MIGRATIONS.md`, and only the blocks above the project's recorded version.
    Those carry the changes structure cannot show.
-5. Present a plan: which file, which section or file is missing, what you would add,
+7. Present a plan: which file, which section or file is missing, what you would add,
    and which values the owner has to choose. Name anything you checked and judged
    present under different wording, so the owner can correct you. Then stop and wait.
-6. On go, apply it, ask the owner for any value a migration block says to ask for,
+8. On go, apply it, ask the owner for any value a migration block says to ask for,
    and set the version line to the version in `<kit>/VERSION`.
 
 Add and ask. Never rewrite existing content, never reorder a queue, and never touch

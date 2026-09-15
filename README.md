@@ -150,11 +150,38 @@ not install anything, you lose the slash commands and nothing else.
 
 ## Updating
 
-Your project records which version it adopted, as one line at the top of its AGENTS.md.
-Pull a newer copy of this repository, run `/handoff update`, and the agent compares your
-project against the current templates, reads [MIGRATIONS.md](MIGRATIONS.md) for anything
-a comparison cannot see, then shows you a plan and waits. It adds and it asks. It
-rewrites nothing.
+Two things can fall behind, and one command handles both.
+
+```
+/handoff update
+```
+
+**The skill on your machine.** It checks the published version against yours, tells you
+both numbers, and shows you the reinstall command. On your go it runs it. Restart your
+agent afterwards, because neither Claude Code nor Codex rescans skill directories
+mid-session.
+
+**Your project.** Each project records the version it adopted, as one line at the top of
+its AGENTS.md. The agent compares your files against the current templates, reads
+[MIGRATIONS.md](MIGRATIONS.md) for anything a comparison cannot see, then shows you a
+plan and waits. It adds and it asks. It rewrites nothing.
+
+To update the skill on its own, without touching a project:
+
+```sh
+npx skills update -g
+```
+
+Then check what you got and restart your agent:
+
+```sh
+cat ~/.claude/skills/handoff/VERSION
+ls ~/.claude/skills/handoff/
+```
+
+Nine entries is a healthy install. One entry means only `SKILL.md` was copied and every
+command that reads a template will fail; reinstall with
+`npx skills add adamalshoomary-ctrl/shotgun -g`.
 
 ## Before you rely on it
 

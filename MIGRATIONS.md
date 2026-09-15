@@ -21,6 +21,25 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.9 (2026-09-15)
+
+`/handoff update` now updates the kit before it updates the project. It fetches the
+published `VERSION` over https, reports both numbers, shows the reinstall command and
+waits for the owner. A failed fetch is reported as a failed check and never as proof the
+kit is current.
+
+It also handles a project recorded at a version newer than the installed kit, which it
+previously had no rule for. It stops rather than downgrade. Where the project folder
+itself holds `templates/` and `MIGRATIONS.md`, that project is the kit's own source and
+is meant to run ahead, so the command says so and stops.
+
+The README's Updating section was wrong: it told people to pull a copy of the repository,
+which almost nobody has. It now covers `npx skills update -g` and how to check an install.
+
+No project file changes.
+
+---
+
 ## 2.8 (2026-09-15)
 
 Nothing in a project changes. Everyone must reinstall.
