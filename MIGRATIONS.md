@@ -21,6 +21,25 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.8 (2026-09-15)
+
+Nothing in a project changes. Everyone must reinstall.
+
+Until now `install.sh` copied only `SKILL.md`, so Claude Code users got a skill with no
+`VERSION`, no `templates/` and no `MIGRATIONS.md`. Every command that needs those failed
+outside the kit's own folder. `SKILL.md` also referred to "the starter folder" without
+ever saying where it was.
+
+`SKILL.md` now opens by distinguishing the kit from the project and resolves the kit as
+the directory holding itself, `${CLAUDE_SKILL_DIR}` in Claude Code. `install.sh` copies
+the whole directory.
+
+Tell the owner to run `npx skills add adamalshoomary-ctrl/shotgun` again, or
+`sh install.sh` from a fresh clone. An agent whose kit directory holds only `SKILL.md`
+must say so and stop rather than searching the disk.
+
+---
+
 ## 2.7 (2026-09-15)
 
 Distribution only. The repository gained `.claude-plugin/marketplace.json` and
