@@ -1,0 +1,18 @@
+# Current state
+
+Updated: {{DATE}}
+
+## Observed state
+
+Implementation: {{WHAT_EXISTS_OR_NOT_STARTED}}
+Verification: {{DATED_EVIDENCE_OR_NOT_YET_VERIFIED}}
+Source location/revision and uncommitted work: {{OBSERVED_GIT_STATE_OR_NO_GIT}}
+Deployment: {{ENVIRONMENT_VERSION_AND_EVIDENCE_OR_NOT_DEPLOYED}}
+
+## Limits and unresolved observations
+
+{{PRESENT_LIMITATIONS_AND_UNKNOWNS_WITH_RELEVANT_LINKS}}
+
+Work order, blockers and any interrupted-task resume instructions are maintained
+only in improvement-plan.md. Do not copy that queue here. Put detailed operational
+facts in supporting files only when the active work needs them.

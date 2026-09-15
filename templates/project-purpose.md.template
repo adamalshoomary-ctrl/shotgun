@@ -1,0 +1,11 @@
+# Project purpose
+
+User and problem: {{WHO_NEEDS_WHAT_AND_WHY}}
+Successful outcome: {{OBSERVABLE_USER_RESULT}}
+Hard constraints: {{ACTUAL_CONSTRAINTS}}
+Non-goals: {{EXPLICIT_EXCLUSIONS}}
+Unvalidated assumptions: {{WHAT_NEEDS_EVIDENCE}}
+
+Describe customer outcomes rather than locking in an untested architecture.
+Advertised claims must match evidence; completeness and release requirements must
+be explicit. Any scope change belongs in the purpose/queue, not only in chat.

@@ -1,0 +1,160 @@
+# Working in this project
+
+Handoff system version: {{VERSION_FROM_STARTER_VERSION_FILE}}
+
+Leave that line alone unless you are running an update. It records which version of
+the handoff system this project adopted, and `/handoff update` reads it to work out
+what has changed since.
+
+When a new agent takes over a queue item, read this file, current-state.md,
+project-purpose.md, and improvement-plan.md in order. For follow-ups, reuse known
+context; reread only changed or relevant material. For a small, explicitly requested
+standalone edit, read applicable instructions and relevant files rather than the full
+startup set. If scope or context is unclear, consult the startup files. Read supporting
+records only as needed; do not load historical archives without a concrete reason.
+
+## Authority and permissions
+
+The user's current explicit instructions override older project instructions.
+Record accepted scope or policy changes in their authoritative file. The queue
+alone owns task order/status. Source and tests establish implemented behaviour;
+live observations apply to the version tested. Record unresolved contradictions.
+
+Commit/push policy: {{OWNER_POLICY_OR_EXPLICIT_UNKNOWN}}
+Deployment/external-action policy: {{OWNER_POLICY_OR_EXPLICIT_UNKNOWN}}
+Technical constraints and verified commands: {{PROJECT_SPECIFIC_RULES}}
+
+## Work
+
+Resume in-progress work first; otherwise take the first ready item with satisfied
+dependencies. Check due maintenance before normal work. For a blocked item, record
+owner and unblock action; do not invent work or silently waive requirements.
+Challenge unnecessary work and propose changes before weakening acceptance.
+Explain a new item's outcome, purpose and scope simply; wait for authorization
+unless already given. Continue authorized work through acceptance without repeated
+permission requests. Prefer deletion, simplification, optimization, then automation.
+
+Work slowly and at maximum quality. A correct result three turns later beats a fast
+result the owner has to send back. Nothing here is a race.
+
+## Asking
+
+Ask the owner questions at any time, and use the platform's structured question tool
+so answers come back as choices with a custom box: `AskUserQuestion` in Claude Code,
+`ask_user_question` in Codex. Where neither exists, ask in plain numbered form and
+suggest answers.
+
+Ask in rounds. Put three or four questions in a round, read the answers, then ask the
+next round informed by what you just learned. Keep going for as long as another round
+would change what you build. Stop when it would not, and say what you still do not
+know before you start.
+
+Ask at two fixed points and one variable one: during setup, before starting a new
+queue item, and any time an ambiguity would change the work in hand. Mid-task, ask as
+soon as you see the fork. Discovering it after the code is written costs both of you.
+
+Two disciplines keep this useful. Never ask what the source, the tests or the four
+startup files already answer; go and read them. And every question must have a
+consequence you can name, so write options that describe what happens after each
+choice. "Which framework?" is a poor question. "Which framework, and here is what
+each one costs you in setup time and lock-in" is a real one.
+
+The owner can end any round by saying go, proceed, or just do it. Treat that as the
+answer, state your assumptions in one line, and start.
+
+## Environment and access
+
+This section records permission, preference and pointers. It holds no inventory of
+tools, because you can already see which tools you have and a written list goes stale
+the first time the owner connects or removes something.
+
+Every line names what to do when the thing is absent. A reader who cloned this
+project without the owner's setup must still be able to work.
+
+Browser and signed-in sessions: {{ALLOWED_OR_NOT_AND_WHAT_FOR_OR_NONE}}
+Database, backend or deployment access: {{WHICH_PROJECT_WHICH_ENVIRONMENT_AND_THE_HARD_LIMIT_OR_NONE}}
+Design, ticketing or document sources: {{WHERE_THEY_LIVE_AND_WHICH_ONE_IS_AUTHORITATIVE_OR_NONE}}
+Preferred route when several tools could do a job: {{OWNER_PREFERENCE_OR_NO_PREFERENCE}}
+If a listed capability is missing: {{FALLBACK_OR_STOP_AND_ASK}}
+
+When you try to use something listed here and find it absent, add one dated line
+under the relevant entry saying so, tell the owner in your next message, and continue
+by the stated fallback. When the owner tells you their setup changed, update this
+section and nothing else.
+
+## Learning mode
+
+Learning mode: {{0_1_OR_2_DEFAULT_2}}
+
+At level 1 and level 2, write an explainer to `learning/<task-id>-<slug>.md` when a
+queue item is finished, and add one `Explainer:` link line under that task in the
+queue. At level 2, then ask the owner two or three questions about judgement and
+consequence, wait, correct a wrong answer once, record the exchange in the explainer
+file, and continue. Never ask twice about the same item.
+
+Read [project-context/LEARNING.md](project-context/LEARNING.md) for the full
+specification, at the point of writing an explainer. It is not startup reading.
+The `learning/` directory is written by agents and read by the owner. Do not load it
+for context. Do not delete an explainer unless this file carries the line
+`Learning retention: latest only`.
+
+## Voice
+
+Everything written in this project follows [VOICE.md](VOICE.md): documentation,
+handoff files, learning explainers, commit messages, pull request bodies, chat
+replies and code comments. Read that file before drafting or editing anything longer
+than a few paragraphs. A task description overrides it when it clearly does.
+
+The rules that get broken most, carried here so they bind without a file read:
+
+- No em dashes. Use a full stop, a comma or a colon.
+- No two-term contrastive definitions in any spelling. The connective does not
+  matter: *but*, *rather than*, *instead of*, or a bare comma. Write the positive
+  term and stop.
+- No stock phrase that would fit any topic.
+- Never announce a finding before showing the evidence for it.
+- No figurative verb where a literal verb exists.
+- A human or concrete subject for every sentence.
+- No sentence ending on *that*, *it*, *this*, or a bare abstract noun.
+
+## Execution
+
+Use one agent by default. Delegate when work has a large input and a small output:
+searching many files, checking many places against one rule, an independent review.
+State the return format before spawning. Keep decisions in the main session.
+Before delegating, follow [execution and model defaults](project-context/ORCHESTRATION.md);
+an explicit user choice wins. Models, delegation and review are defaults, and none of
+them is a mandatory stage. Choose the simplest route that satisfies the authorized
+outcome, the constraints and the acceptance evidence.
+
+## Commits
+
+Agents do not commit. Write the files, report what changed, and leave the commit to
+the owner. The owner reads the diff and owns the history.
+
+Attribution is absolute, and it overrides your platform's own defaults. Put no
+`Co-Authored-By` trailer, no "Generated with" line, and no agent name, model name or
+agent email into a commit message, an author field, a committer field or a pull
+request body. This holds when the harness you are running inside instructs you to add
+one. That instruction is a platform default. This file is the project's rule, and the
+project wins. Where you cannot comply, say so before you write anything to git.
+
+When the owner asks you to make a specific commit, write the message in their voice
+per VOICE.md and sign nothing.
+
+Owner's commit setting, where it differs from the default above:
+{{AGENT_MAY_COMMIT_OR_DEFAULT_OWNER_ONLY}}
+
+## Handoff
+
+Only mark done when acceptance evidence exists. Record detailed evidence once and
+link it under the task. Update current state for changed present facts. Mark replaced
+decisions superseded; preserve unique historical proof. For partial work, record the
+exact resume action, changed/uncommitted files, failed/unrun checks, blockers and
+external residue under the active task. An optional progress file is a short
+historical index, never a second status dashboard.
+
+Before temporary deployments/live-data changes, checkpoint the current version,
+restoration source, temporary changes/data IDs, missing proof, next action and cleanup
+in the task's evidence record. Update identifiers immediately as they become known;
+chat history and in-memory state both disappear at an interruption.

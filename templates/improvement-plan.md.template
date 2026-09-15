@@ -1,0 +1,38 @@
+# Ordered queue
+
+This file alone owns order and status. Resume in-progress work first; otherwise
+select the first ready task whose prerequisites are satisfied. Status vocabulary:
+ready, in progress, blocked, planned, done, deferred, rejected. Only done means
+acceptance evidence exists. No task is complete just because code was written.
+
+## Maintenance interrupts
+
+{{DATED_OBLIGATIONS_AND_OWNERS_OR_NONE_KNOWN}}
+
+## Tasks in order
+
+### Q1: {{OUTCOME}} [ready]
+
+Why: {{USER_VALUE_OR_RISK}}
+Scope and exclusions: {{BOUNDARIES}}
+Dependencies: {{PREREQUISITES_OR_NONE}}
+Read: {{RELEVANT_EXISTING_FILES_OR_NONE_YET}}
+Acceptance: {{OBSERVABLE_CHECKS_AND_REQUIRED_EVIDENCE}}
+Evidence: none yet.
+Explainer: none yet.
+
+If interrupted, record here: current result, changed/uncommitted files, missing
+checks, external residue, and exact next action. If blocked, record the owner and
+unblock condition. Replace obsolete resume instructions when work continues.
+
+When the task reaches done at learning mode 1 or 2, replace the Explainer line with
+the path to the file written under `learning/`. One line, no summary. The explainer
+holds the detail.
+
+## Later milestones
+
+{{ONLY_JUSTIFIED_PROVISIONAL_MILESTONES_OR_NONE}}
+
+Promote a milestone to a bounded task when its prerequisites are understood. Add
+only the next few detailed tasks. Preserve completed evidence with concise links;
+move long historical narratives out of startup reading without losing unique proof.

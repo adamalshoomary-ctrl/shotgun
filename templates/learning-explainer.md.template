@@ -1,0 +1,46 @@
+# {{TASK_ID}}: {{PLAIN_LANGUAGE_TITLE}}
+
+Written: {{DATE}}. Learning mode: {{1_OR_2}}.
+
+Drop any heading below that would be empty. Length follows the change: eighty words
+for a configuration edit, twelve hundred for a new subsystem. Write for a reader who
+cannot yet read the code and who will be asked about this work by someone else.
+Follow VOICE.md.
+
+## What I changed
+
+{{FILES_AND_WHAT_EACH_NOW_DOES}}
+
+## Why it was needed
+
+{{THE_PROBLEM_IN_THE_OWNERS_TERMS}}
+
+## How it works
+
+{{ONE_REQUEST_OR_RUN_FOLLOWED_FROM_START_TO_FINISH_USING_REAL_NAMES_EACH_EXPLAINED_ONCE}}
+
+## The concept worth knowing
+
+{{ONE_IDEA_THAT_WILL_RECUR_IN_THIS_PROJECT_TAUGHT_ON_ITS_OWN_TERMS_THEN_POINTED_AT_THE_LINE_HERE}}
+
+## What I rejected and why
+
+{{THE_OTHER_REASONABLE_APPROACH_AND_THE_REASON_THIS_ONE_WON}}
+
+## What to check if it breaks
+
+{{FIRST_TWO_PLACES_TO_LOOK_THE_COMMAND_TO_RUN_AND_WHAT_HEALTHY_LOOKS_LIKE}}
+
+## Questions and answers
+
+Level 2 only. Two or three questions about judgement and consequence, the owner's
+answer as given, and one correction underneath where the answer was wrong or partial.
+Write "not answered" where the owner skipped. Never a second round.
+
+1. {{QUESTION}}
+   Answer: {{AS_GIVEN}}
+   Correction: {{ONE_REPLY_OR_NONE_NEEDED}}
+
+## Recurring gap
+
+{{NAME_IT_ONLY_IF_THE_SAME_MISUNDERSTANDING_APPEARED_IN_AN_EARLIER_EXPLAINER_OTHERWISE_DELETE_THIS_HEADING}}
