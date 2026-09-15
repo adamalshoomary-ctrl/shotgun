@@ -39,12 +39,28 @@ review when the expected gain in quality, speed or main-context economy justifie
 State that reason in one sentence before spawning. Never delegate to fill a role. Parallel workers
 need independent work and distinct write ownership; dependent stages wait for their prerequisites.
 
-## Model preferences
+## Opening your own session
 
-| Work | Codex | Claude Code |
+Addressed to the owner. Open whichever agent and model you prefer. Nothing in this
+file has any authority over that choice, and no agent may change it or suggest
+changing it unless you ask.
+
+A recommendation, and only that. On Codex, GPT-6 Astra at Medium. On Claude Code,
+Opus 5 at medium. A session that plans, asks questions, reviews work and decides what
+happens next benefits from a judgement-tier model, and moderate effort is enough for
+it, because the session is rarely the thing writing volume.
+
+Everything below this line is addressed to the agent, and none of it applies to the
+session you opened.
+
+## Model preferences for subagents
+
+Addressed to the agent. These rows cover work you delegate to a subagent during a
+task. They say nothing about the session the owner opened, which is settled and not
+yours to revisit.
+
+| Delegated work | Codex | Claude Code |
 | --- | --- | --- |
-| New main task, holding the session | GPT-6 Astra, Medium | Opus 5, medium |
-| Simple question, small document edit, straightforward follow-up | Astra, Light/low where supported | Sonnet 5 at low, or Haiku 4.5 |
 | Clear, substantial implementation | GPT-5.6 Terra, Medium | Sonnet 5, medium |
 | Difficult debugging or complex implementation | GPT-5.6 Sol, Medium; raise reasoning when evidence warrants | Opus 5, high; raise to xhigh when evidence warrants |
 | Important independent review | GPT-6 Astra, High | Opus 5, high, in a session that did not write the code |
@@ -53,17 +69,15 @@ need independent work and distinct write ownership; dependent stages wait for th
 Codex model IDs: `gpt-6-astra`, `gpt-5.6-terra`, `gpt-5.6-sol`, `gpt-5.6-luna`.
 Claude model IDs: `claude-opus-5`, `claude-sonnet-5`, `claude-haiku-4-5-20251001`.
 
-Claude Code effort levels are low, medium, high, xhigh and max, set with `/effort` or in a subagent
-definition. Opus 5 defaults to high, so `medium` in the table above is a deliberate step down for
-routine session work. Haiku 4.5 accepts no effort level; its speed is the point. Claude Fable 5.1
-exists and costs roughly double Opus 5 per token. Reach for it only after Opus 5 at max has
-measurably fallen short on a specific task, and record the comparison.
+Claude Code effort levels are low, medium, high, xhigh and max, set in a subagent
+definition. Opus 5 defaults to high. Haiku 4.5 accepts no effort level; its speed is
+the point. Claude Fable 5.1 exists and costs roughly double Opus 5 per token. Reach
+for it only after Opus 5 at max has measurably fallen short on a specific task, and
+record the comparison.
 
-An explicit user selection overrides every row here. The user selects the main model, and no
-document changes a session that is already running. For subagents, request the model and effort
-explicitly where the platform supports it, then verify what actually ran. On any other platform,
-use the configured equivalent and disclose material differences. Never silently substitute for a
-model the user requested by name.
+Request the model and the effort explicitly where the platform supports it, then verify
+what actually ran. On any other platform, use the configured equivalent and disclose
+material differences. Never silently substitute for a model the owner named.
 
 ### Claude Code specifics
 

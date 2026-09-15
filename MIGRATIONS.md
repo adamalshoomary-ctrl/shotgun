@@ -21,6 +21,25 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 2.3 (2026-09-15)
+
+`project-context/ORCHESTRATION.md` was restructured and must be replaced with the
+starter's copy. The old file mixed two decisions in one table: which agent and model
+the owner opens, and which model an agent requests for a subagent. An agent reading
+the old table could take a row about the owner's session as an instruction it was
+meant to act on.
+
+The new file splits them. One short section addressed to the owner, carrying a
+recommendation and no authority. One table addressed to the agent, covering delegated
+work only and saying so.
+
+Tell the owner the rule in one sentence when you apply it: they open whatever agent
+they want, and no agent may change that or suggest changing it unless asked.
+
+No project file changes.
+
+---
+
 ## 2.2 (2026-09-15)
 
 AGENTS.md gains a `## Commits` section. The structure check finds it, and the wording

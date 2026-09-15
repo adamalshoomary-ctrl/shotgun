@@ -32,13 +32,18 @@ permission, preference and pointers. No tool inventory is written, because every
 carries a fallback for its own absence, so somebody who clones the project without
 your setup can still work.
 
-## Which model to open
+## Which agent you open
 
-[ORCHESTRATION.md](ORCHESTRATION.md) holds one table covering Codex and Claude Code,
-the checkpoint protocol, and an account of what delegation actually costs and saves.
-Read it when the choice matters. Short version for a new main task: GPT-6 Astra at
-Medium on Codex, Opus 5 at medium on Claude Code. Main-agent settings are your
-selection, and these files never change them.
+Whichever one you like. Your session is your choice, and nothing here has a vote in
+it. No agent may change it or suggest changing it unless you ask.
+
+A recommendation, and only that. On Codex, GPT-6 Astra at Medium. On Claude Code,
+Opus 5 at medium.
+
+Subagents are a separate matter. An agent spawns those during a task, without asking,
+and [ORCHESTRATION.md](ORCHESTRATION.md) holds the table telling it which model to
+request for which kind of delegated work. That file also carries the checkpoint
+protocol and an account of what delegation actually costs and saves.
 
 ## Start a new project
 
