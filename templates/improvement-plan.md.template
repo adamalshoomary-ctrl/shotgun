@@ -19,15 +19,15 @@ Dependencies: {{PREREQUISITES_OR_NONE}}
 Read: {{RELEVANT_EXISTING_FILES_OR_NONE_YET}}
 Acceptance: {{OBSERVABLE_CHECKS_AND_REQUIRED_EVIDENCE}}
 Evidence: none yet.
-Explainer: none yet.
 
 If interrupted, record here: current result, changed/uncommitted files, missing
 checks, external residue, and exact next action. If blocked, record the owner and
 unblock condition. Replace obsolete resume instructions when work continues.
 
-When the task reaches done at learning mode 1 or 2, replace the Explainer line with
-the path to the file written under `learning/`. One line, no summary. The explainer
-holds the detail.
+When the task reaches done and learning mode is on, rewrite the "What just changed
+and why" section of current-state.md to explain this item to the owner. Nothing is
+added here. The queue holds the evidence and the explanation lives in one place that
+the next item overwrites.
 
 ## Later milestones
 

@@ -4,9 +4,7 @@ AGENTS.md
 current-state.md
 project-purpose.md
 improvement-plan.md
-learning/
 project-context/
-VOICE.md
 .claude/
 
 # These files then travel by file sync, meaning iCloud Drive, Dropbox or whatever
@@ -17,8 +15,8 @@ VOICE.md
 
 # Team mode. Uncomment the four state files below to commit them instead, so that
 # teammates and other machines receive the queue and the current state through the
-# repository. Explainers under learning/ and the voice guide can stay ignored while
-# the rest is shared; that combination is the usual one.
+# repository. Note that current-state.md carries the plain-language explanation of the
+# last finished item, so sharing it shares that too.
 # !AGENTS.md
 # !current-state.md
 # !project-purpose.md

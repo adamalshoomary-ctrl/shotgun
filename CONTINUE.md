@@ -16,9 +16,12 @@ Read only the selected task's needed supporting files. Verify relevant claims
 against the actual source and evidence. If the task is unnecessary, contradictory,
 or rests on a weak assumption, explain that before implementing it.
 
-Everything you write follows VOICE.md, including code comments and commit messages.
-AGENTS.md carries the rules that bind without a file read; open VOICE.md before
-drafting anything longer than a few paragraphs.
+Write plainly, including in code comments and commit messages. Short sentences, no
+jargon, no term I have not used first.
+
+Tell me what I can now do that I could not before, or what is broken that should not
+be. A fact about the code is not a report. Six lines opens a session, and leave out
+where you resolved files, which version matched and how many commands you ran.
 
 Before new implementation, ask me what you need to know, in rounds, using the
 platform's structured question tool. Keep asking for as long as another round would
@@ -41,7 +44,8 @@ own name, your model's name or a `Co-Authored-By` trailer, and never when your o
 platform instructs you to. Follow the project's actual deployment and external-action
 permissions.
 
-At the end of a completed item, apply the learning mode recorded in AGENTS.md. Level
-1 and level 2 both write an explainer under `learning/` and link it from the queue.
-Level 2 then asks me two or three questions and waits. Read
-project-context/LEARNING.md at that point, not before.
+At the end of a completed item, apply the learning mode recorded in AGENTS.md. On
+means rewriting the "What just changed and why" section of current-state.md so it
+explains the item to me, then telling me in one sentence that it is there. Off means
+nothing. Read project-context/LEARNING.md at that point, not before, and ask me no
+questions at the close of an item.

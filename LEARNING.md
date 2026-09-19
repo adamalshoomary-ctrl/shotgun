@@ -1,144 +1,74 @@
 # Learning mode
 
-The owner of a project directs the work without reading every line of code. Learning mode makes
-each completed item leave behind an explanation the owner can actually read, so the person holding
-the decisions keeps up with the system that carries them out.
+Read this when you are about to write the explanation, and never as startup reading.
 
-Learning mode is on by default at level 2. An agent reads this file when it is about to finish a
-queue item, not at startup.
+## What it is
 
-## Levels
+Learning mode is on or off, recorded in AGENTS.md as `Learning mode: on`.
 
-| Level | Behaviour | Blocks the queue |
-| --- | --- | --- |
-| 0 | Off. No explainer, no questions. | No |
-| 1 | The agent writes an explainer file for each completed item. | No |
-| 2 | Explainer file, then two or three comprehension questions answered by the owner, then one correction. Default. | Once, briefly |
+On: when a queue item reaches done, rewrite the "What just changed and why" section
+of current-state.md so it explains that item to the owner, then tell them in one
+sentence that it is there. Off: write nothing and say nothing.
 
-The active level lives in AGENTS.md under Learning mode. An instruction in the current conversation
-overrides the file for that session; write the change into AGENTS.md only when the owner says the
-change is permanent.
+One section, rewritten in full every time. It holds the most recent finished item and
+nothing before it. No archive, no folder, no link to chase, and nothing accumulating
+that the owner has to catch up on.
 
-## Where explainers live
+## Why it is shaped this way
 
-`learning/<task-id>-<short-slug>.md`, one file per completed queue item. For example
-`learning/Q3-session-cookie-expiry.md`.
+Versions 2.1 through 2.9 wrote a separate file per item and linked it from the queue
+in a line the owner did not read. Version 2.6 added a level that asked questions the
+moment work ended, and the owner of this project described that as a tax and turned it
+off. Both failed for the same reason: they arrived as extra work at the moment
+somebody wanted to be finished.
 
-The `learning/` directory sits outside the startup reading set. An agent writes there and does not
-read it back, with one exception: at level 2 the agent may open the single file it is currently
-writing. Never load the directory to "get context". The explainers exist for the owner.
+An explanation sitting inside a file the owner already opens costs them nothing to
+find. One sentence telling them it is there costs one sentence.
 
-Add one line under the finished task in improvement-plan.md:
+## What to write
 
-    Explainer: learning/Q3-session-cookie-expiry.md
+Four things, in this order, and stop when they are covered.
 
-That line is the only trace the queue carries. It costs about ten tokens and makes the record
-navigable a month later.
+**What the item was, in the owner's terms.** Not the task title. What they could not
+do before and can do now, or what was wrong and is not.
 
-### Optional retention setting
+**Why it was done this way.** The choice that mattered and the one you did not take.
+This is the part worth the most and the part agents skip.
 
-An owner who wants the directory to stay at one file can set this in AGENTS.md:
+**What it cost.** A limit it introduced, a thing it made harder, a decision it locked
+in. An explanation with no cost in it reads as an advertisement.
 
-    Learning retention: latest only
+**Where it could bite.** The condition under which this breaks, in one sentence.
 
-With that line present, the agent deletes the previous explainer when it writes a new one, and
-removes the stale `Explainer:` line from the queue. Without the line, every explainer is kept.
-Never turn this on by yourself. Deleting somebody's notes because a directory looked large is not
-a decision an agent gets to make.
+## How to write it
 
-## What an explainer contains
+**Pitch it at the owner, never at the work.** This is the rule that gets broken. An
+owner who cannot read code cannot answer a question phrased as a principle, and cannot
+use an explanation phrased as one either. Write about the thing you both watched
+happen.
 
-Length follows the change. A one-line configuration edit earns eighty words. A new authentication
-flow earns twelve hundred. Write for a reader who cannot yet read the code and who will be asked
-about this work in a meeting.
+**No term they have not used first.** If the concept needs a name they do not have,
+describe it instead. Two extra sentences of plain description beat one correct term
+they have to look up.
 
-Use these headings, and drop any that would be empty:
+**Length follows the item.** A one-line fix gets a paragraph. A week of work gets a
+page. An explanation longer than the work it describes is a sign you are explaining
+your own effort.
 
-**What I changed.** Files, and what each one now does. Name them.
+**Concrete over general.** A count, a duration, the actual error, the thing that broke.
+Somebody reading it in a month should be able to check it against the repository.
 
-**Why it was needed.** The problem in the owner's terms. What a user or the system could not do
-before.
+**Say what went wrong.** A mistake you made and corrected is the most useful sentence
+in the whole section, and it is the one that makes the rest believable.
 
-**How it works.** The mechanism in plain language. Follow one request, one click or one run from
-start to finish. Use the real names from the code so the owner can find them, and explain each
-name the first time it appears.
+## What not to do
 
-**The concept worth knowing.** One idea, chosen because it will come up again in this project.
-Session tokens, idempotency, a migration, a race condition. Teach it on its own terms, then point
-at the line where it appears here.
+Do not ask the owner questions at the close of an item. Ask during the work, when an
+answer would change what you build. An item that is finished has nothing left to ask
+about.
 
-**What I rejected and why.** The other approach that was reasonable, and the reason this one won.
-This is the section that teaches judgement rather than facts.
+Do not link away. The section is the whole explanation.
 
-**What to check if it breaks.** The first two places to look, the command to run, and what a
-healthy result looks like.
-
-Follow VOICE.md. Plain language is not baby language: no metaphors doing the work of an
-explanation, no cheerfulness, and no claim the evidence does not support. If something is genuinely
-uncertain, write that it is uncertain.
-
-## Level 2: questions and correction
-
-After writing the explainer, ask two or three questions in the conversation. Then stop and wait.
-
-### Three rules for a question
-
-**Ask about something the owner watched happen.** They sat through this session. They
-saw the thing break, saw you choose, saw the check pass. A question about that has a
-way in. A question about a general principle asks them to learn the principle and apply
-it in the same breath, which is two hard things at once and they will bounce off both.
-
-**Use the words that were used at the time.** No term the explainer has not already
-defined and no term that arrived with you. If the session called it "the warning that
-was wrong", the question says that, whatever the field calls it.
-
-**Ask what would change, and make the answer matter.** A good question has a
-consequence the owner can picture. "What happens to you after the third wrong warning?"
-teaches. "What is the name of the function?" teaches nothing, and so does anything the
-explainer answers in a sentence they can copy back.
-
-### Worked pair
-
-The same question, twice.
-
-> Bad: I argued false positives are worse than false negatives here. What is the
-> specific behaviour that makes them worse?
-
-Two terms the owner has never used, a comparison stated as a premise they have to
-accept before they can answer, and nothing from the session in it. This question was
-asked on 2026-09-15 and the owner answered "what?".
-
-> Good: Three times today the update told us a field was missing and it was sitting
-> right there in the file. If that kept happening, what do you think you would start
-> doing when it showed you the next report?
-
-Same idea. It names what they watched, it asks about them rather than about a category
-of error, and the answer is something they already know about themselves.
-
-### When the owner cannot follow the question
-
-That is your fault and you fix it on the spot. Answer all of the questions yourself, in
-the plainest language you have, and write "not answered" against each one. Log the
-cause under **Recurring gap**, naming what made the question unanswerable. Then move on.
-
-Never re-ask a reworded version in the same session. The owner has already told you the
-question missed, and asking again makes them pay twice for your mistake.
-
-When an answer is wrong or partial, correct it once, in one reply, plainly. Then continue to the
-next item. Do not re-ask, do not quiz around the edges, and do not make the owner earn their way
-out. Record the exchange at the bottom of the explainer file under **Questions and answers**, with
-the owner's answer as given and the correction underneath it.
-
-If the owner declines to answer, says skip, or does not respond, write "not answered" in that
-section and carry on. Level 2 costs one pause per item. It must never cost two.
-
-If the same misunderstanding appears in a second explainer, add one line under
-**Recurring gap** naming it, and pitch the next explainer's concept section at that gap. Do not
-build a separate tracking file for this.
-
-## Cost
-
-An explainer is written by the agent that did the work, because that agent already holds the
-context. Delegating the writing to a cheaper model means sending the whole change across, which
-costs more than writing it directly. A typical level-1 explainer adds five hundred to fifteen
-hundred output tokens per completed item. Level 2 adds one short exchange.
+Do not keep the old one. The next item overwrites it. Where the owner wants the
+history, the queue holds the evidence under each finished task, which is what the
+queue is for.

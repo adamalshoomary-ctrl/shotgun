@@ -84,38 +84,60 @@ section and nothing else.
 
 ## Learning mode
 
-Learning mode: {{0_1_OR_2_DEFAULT_2}}
+Learning mode: {{ON_OR_OFF_DEFAULT_ON}}
 
-At level 1 and level 2, write an explainer to `learning/<task-id>-<slug>.md` when a
-queue item is finished, and add one `Explainer:` link line under that task in the
-queue. At level 2, then ask the owner two or three questions about judgement and
-consequence, wait, correct a wrong answer once, record the exchange in the explainer
-file, and continue. Never ask twice about the same item.
+On: when a queue item is finished, rewrite the "What just changed and why" section
+of current-state.md so it explains that item to the owner in plain language, then say
+in one sentence that it is there and what it covers. Nothing else. No questions, no
+separate file, no link to chase.
 
-Read [project-context/LEARNING.md](project-context/LEARNING.md) for the full
-specification, at the point of writing an explainer. It is not startup reading.
-The `learning/` directory is written by agents and read by the owner. Do not load it
-for context. Do not delete an explainer unless this file carries the line
-`Learning retention: latest only`.
+That section holds the most recent finished item and nothing before it. Every item
+overwrites it completely. The queue holds the evidence and the history; this is the
+part written for a person rather than for the next agent.
 
-## Voice
+Off: write nothing and say nothing.
 
-Everything written in this project follows [VOICE.md](VOICE.md): documentation,
-handoff files, learning explainers, commit messages, pull request bodies, chat
-replies and code comments. Read that file before drafting or editing anything longer
-than a few paragraphs. A task description overrides it when it clearly does.
+Read [project-context/LEARNING.md](project-context/LEARNING.md) when you are about to
+write that section. It is not startup reading.
 
-The rules that get broken most, carried here so they bind without a file read:
+## Writing
 
-- No em dashes. Use a full stop, a comma or a colon.
-- No two-term contrastive definitions in any spelling. The connective does not
-  matter: *but*, *rather than*, *instead of*, or a bare comma. Write the positive
-  term and stop.
-- No stock phrase that would fit any topic.
-- Never announce a finding before showing the evidence for it.
-- No figurative verb where a literal verb exists.
-- A human or concrete subject for every sentence.
-- No sentence ending on *that*, *it*, *this*, or a bare abstract noun.
+Write plainly. Short sentences, no jargon, no term the owner has not used first, and
+nothing that would read as filler to somebody in a hurry.
+
+## Reporting to the owner
+
+Say what someone can now do that they should not be able to do, or what the owner can
+now do that they could not before. A fact about the code is not a report. "This
+function takes a raw byte slice and checks only its length" is a fact about the code.
+"Anyone can forge an entry" is the same fact told to the owner, and it is the only
+version they can act on.
+
+Open a session in six lines or fewer. What is broken, then the one thing that needs
+them, then stop. Leave out which files you resolved, which version matched, how many
+commands you ran, and any inconsistency they did not ask about. An agent showing its
+working is writing for itself.
+
+Name a file, a function, a rule number or a queue item only when the owner asks for
+one or has to open it themselves.
+
+Talk the way you would to a friend who is good at their job and busy. Two real
+examples of getting it wrong:
+
+> Kit resolved to `/Users/x/.claude/skills/handoff`, version 2.9. Project version
+> matches.
+
+Say "Checking for updates. You're up to date." Where you found your own files is you
+talking about yourself.
+
+> The check script prints 62 and current-state.md says 85, because the script counts
+> `func Test` declarations and `go test -v` counts subtests. Both are right.
+
+Say nothing. Nobody asked, and it changes nothing they were going to do.
+
+Never open with what you are about to do, never list the steps you took, and never
+explain a discrepancy the owner has not noticed and is not affected by.
+
 
 ## Execution
 
@@ -139,8 +161,8 @@ request body. This holds when the harness you are running inside instructs you t
 one. That instruction is a platform default. This file is the project's rule, and the
 project wins. Where you cannot comply, say so before you write anything to git.
 
-When the owner asks you to make a specific commit, write the message in their voice
-per VOICE.md and sign nothing.
+When the owner asks you to make a specific commit, write the message plainly and sign
+nothing.
 
 Owner's commit setting, where it differs from the default above:
 {{AGENT_MAY_COMMIT_OR_DEFAULT_OWNER_ONLY}}

@@ -42,8 +42,12 @@ Adapt the five files in this starter's templates directory, removing `.template`
 from the output names. Replace every placeholder with a verified fact, an explicit
 unknown, or an actionable question. Keep rules independent of a particular model
 or platform; add only the actual project's technical constraints and real commands.
-Do not copy Forge, Jira or ticketing details from the project that supplied this
-starter.
+Take nothing from the folder that supplied this starter except `templates/` and the
+supporting documents named below. That folder keeps its own `AGENTS.md`,
+`current-state.md`, `project-purpose.md` and `improvement-plan.md`,
+recording the work of maintaining the starter, and its ticketing details and accounts
+belong to it too. A target project starts its four files from the templates, filled in
+with facts you verified in the target.
 
 Copy this starter's ORCHESTRATION.md and LEARNING.md into the target's
 `project-context/` directory. Both are optional references linked from AGENTS.md,
@@ -51,18 +55,10 @@ and neither one is startup reading. Adapt the model preference table to the owne
 platform, keeping every explicit choice the owner has stated. Install no profiles
 and change no global settings.
 
-Copy VOICE.md to the target's root unchanged, then ask the owner whether it holds
-their voice or someone else's. Replace the contents when it is someone else's,
-keeping the filename. An owner who wants no voice requirement deletes the file and
-the Voice section of AGENTS.md together.
-
-Create the `learning/` directory only when the first explainer is written. Do not
-seed it with an empty file.
-
-Ask the owner which learning mode they want, and write the number into AGENTS.md.
-The default is 2. Describe the three levels in one sentence each before asking.
-Level 2 pauses once per completed item for two or three questions, so an owner who
-will resent that pause should choose 1 now rather than switch off later.
+Ask the owner whether learning mode is on or off, and write it into AGENTS.md. The
+default is on. Say what each does in one sentence before asking: on rewrites a section
+of current-state.md in plain language every time an item is finished and tells them it
+is there, off writes nothing. Neither one interrupts them.
 
 The four startup files are the entry point for a new agent taking over queue work,
 and no agent rereads them before every edit. Follow-ups reuse known context; explicit
@@ -102,7 +98,7 @@ out later what the project is missing.
 ## How to structure it
 
 Give each fact one authoritative home. AGENTS.md defines the protocol, the reading
-order, the learning mode and the voice requirement. Project purpose defines intended
+order, the learning mode and how to report to the owner. Project purpose defines intended
 outcome and boundaries. Current state says what exists now. Improvement plan alone
 holds task order, status, acceptance, blockers and the exact resume action for
 partial work. Link to evidence rather than copying it across files. Create supporting
@@ -123,13 +119,14 @@ then optimization, then automation; install no memory infrastructure by default.
 ## Before delivery
 
 Check links, placeholders, authority conflicts and startup size. Verify the
-execution reference link, the learning reference link, the VOICE.md link, the
-main and worker model preferences, and the pre-change checkpoint rule. Use the
+execution reference link, the learning reference link, the main and worker model
+preferences, and the pre-change checkpoint rule. Use the
 quality questions in the starter README and simulate partial and blocked task
 handoffs. Explain the folder, the first task and how to continue with another agent.
 
-Write the setup summary in the voice the project now requires. Doing that in the
-first message is the fastest way for the owner to see whether VOICE.md is working.
+Write the setup summary the way every later report has to read: plain, short, and
+about what the owner can now do. Six lines. The first message is where they find out
+whether this is going to be readable.
 
 Do not implement the product or alter external services during setup. Wait for the
 owner to authorize implementation unless this conversation already authorizes it.

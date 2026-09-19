@@ -1,7 +1,7 @@
 ---
 name: handoff
 description: Run the repository-based agent handoff system in this project. Use for setting up the handoff files in a new project, taking over queue work from another agent or another session, changing learning mode, or reporting queue status. Triggers on "set up handoff", "continue the queue", "what is next in the plan", "take over this project", "learning mode".
-argument-hint: setup | continue | status | learn <0|1|2> | explain | update
+argument-hint: setup | continue | status | learn <on|off> | explain | update
 arguments: [command, value]
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent, WebFetch, WebSearch
 ---
@@ -17,19 +17,20 @@ say which you chose before acting.
 ## Two places, and never confuse them
 
 **The kit** is the directory holding this file. `VERSION`, `MIGRATIONS.md`, `SETUP.md`,
-`CONTINUE.md`, `LEARNING.md`, `ORCHESTRATION.md`, `VOICE.md` and `templates/` all sit
+`CONTINUE.md`, `LEARNING.md`, `ORCHESTRATION.md` and `templates/` all sit
 beside it. Claude Code gives you that path as `${CLAUDE_SKILL_DIR}`. Elsewhere, take the
 directory of this file. Every filename below written as `<kit>/something` means a file
 in there.
 
 **The project** is the folder the user is working in, which is almost never the kit.
 `AGENTS.md`, `current-state.md`, `project-purpose.md`, `improvement-plan.md`,
-`learning/` and the project's own `VOICE.md` and `project-context/` all sit there. Every
+and the project's own `project-context/` all sit there. Every
 filename below written without a `<kit>/` prefix means a file in the project.
 
-Resolve `<kit>` once, at the start of any command that needs it, and say the path you
-resolved it to. Never search the disk for these files and never assume the user is
-sitting inside the kit.
+Resolve `<kit>` once, at the start of any command that needs it. Keep the path to
+yourself unless something goes wrong or the user asks. Telling somebody where you found
+your own files is you talking about yourself. Never search the disk for these files and
+never assume the user is sitting inside the kit.
 
 If `<kit>` has only this file in it and nothing else, the install was incomplete. Say so
 and tell the user to reinstall with `npx skills add adamalshoomary-ctrl/shotgun`, which
@@ -64,17 +65,17 @@ stop. Write nothing.
 
 ## learn
 
-The value is the level. Accept `0`, `1` and `2`.
+Accept `on` and `off`.
 
-Set the `Learning mode:` line in AGENTS.md to that number, then confirm what changed
-in one sentence. With no level given, report the current one and describe the three
-levels in one sentence each.
+Set the `Learning mode:` line in AGENTS.md, then confirm what changed in one sentence.
+With no value given, say which it is now and what each one does in one sentence each.
 
-Level 0 writes nothing. Level 1 writes an explainer file per completed item. Level 2
-writes the explainer, then asks two or three questions and waits once.
+On: every finished queue item rewrites the "What just changed and why" section of
+current-state.md in plain language, and the agent says in one sentence that it is
+there. Off: nothing is written and nothing is said.
 
-Changing the number in AGENTS.md makes the change permanent. An owner who wants the
-change for one session should say so in conversation, and you leave the file alone.
+Editing AGENTS.md makes the change permanent. An owner who wants it for one session
+says so in conversation, and you leave the file alone.
 
 ## update
 
@@ -88,11 +89,15 @@ installed on this machine, then the project.
 
        curl -fsSL https://raw.githubusercontent.com/adamalshoomary-ctrl/shotgun/main/VERSION
 
-   When the fetch fails, say you could not check, and carry on with the kit you have.
-   Never treat a failed check as proof the kit is current.
+   Say one of three things and nothing else. "Checking for updates." Then either
+   "You're up to date." or "There's a newer version, 3.1. You're on 3.0." If the fetch
+   fails: "Couldn't check for updates, carrying on with what you have." A failed check
+   is never proof the kit is current.
 
-2. When the published version is newer, say both versions plainly, show this command,
-   and wait:
+   Do not name the kit, the path, the curl command, or the word `VERSION`. The user
+   wants to know whether there is an update.
+
+2. When the published version is newer, show this command and wait:
 
        npx skills add adamalshoomary-ctrl/shotgun -g
 
@@ -121,8 +126,8 @@ installed on this machine, then the project.
    the reinstall command above.
 4. Compare structure, never content. For each file in `<kit>/templates/`, list the section
    headings and marker lines the template carries, and check the project's
-   corresponding file for each one. Check file presence too: `VOICE.md`,
-   `project-context/LEARNING.md`, `project-context/ORCHESTRATION.md`. Ignore
+   corresponding file for each one. Check file presence too:
+   `project-context/LEARNING.md` and `project-context/ORCHESTRATION.md`. Ignore
    everything written underneath a heading; that is the owner's project, and none of
    it is yours to reconcile.
 5. Match on meaning, and never on characters. A setup agent may have reworded a
@@ -141,17 +146,18 @@ installed on this machine, then the project.
 8. On go, apply it, ask the owner for any value a migration block says to ask for,
    and set the version line to the version in `<kit>/VERSION`.
 
-Add and ask. Never rewrite existing content, never reorder a queue, and never touch
-`learning/`. When a migration block calls for a change to something already written,
-show the owner the current text and the proposed text side by side and ask.
+Add and ask. Never rewrite existing content and never reorder a queue. When a
+migration block calls for a change to something already written, show the owner the
+current text and the proposed text side by side and ask. A `learning/` directory left
+by an older version is the owner's history: leave it exactly as it is.
 
 ## explain
 
-Write an explainer for the most recently completed queue item, or for an item the
-owner names, even when learning mode is 0. Read the project's
-`project-context/LEARNING.md` first, falling back to `<kit>/LEARNING.md` when the
-project has no copy, for the structure and the length rule, then write to
-`learning/<task-id>-<slug>.md` and add the `Explainer:` line to the queue.
+Rewrite the "What just changed and why" section of current-state.md for the most
+recently completed queue item, or for an item the owner names, even when learning mode
+is off. Read the project's `project-context/LEARNING.md` first, falling back to
+`<kit>/LEARNING.md` when the project has no copy. Replace the section outright. Add
+nothing to the queue.
 
 ## Always
 
@@ -165,10 +171,36 @@ or an external service. It records what the owner permits and prefers, and what 
 when something is absent. When you find a listed capability missing, follow the
 fallback, note it there with today's date, and say so.
 
-Everything you write follows the project's `VOICE.md`, including code comments and
-commit messages. Read it before drafting anything longer than a few paragraphs. A
-project with no `VOICE.md` has no voice requirement; `<kit>/VOICE.md` is the shipped
-default and belongs to a project only once setup has copied it there.
+Write plainly, including in code comments and commit messages. Short sentences, no
+jargon, and no term the owner has not used first.
+
+Report what someone can now do that they should not be able to do, or what the owner
+can now do that they could not before. A fact about the code is not a report. Open a
+session in six lines or fewer: what is broken, then the one thing that needs them,
+then stop. Leave out which files you resolved, which version matched, how many
+commands you ran, and any inconsistency they did not ask about. Name a file, a
+function or a queue item only when the owner asks or has to open it themselves.
+
+Ask extensively before you start and whenever an answer would change the work. Then
+do the work through to acceptance without stopping to check in.
+
+Talk the way you would to a friend who is good at their job and busy. Two real
+examples of getting it wrong:
+
+> Kit resolved to `/Users/x/.claude/skills/handoff`, version 2.9. Project version
+> matches.
+
+Say "Checking for updates. You're up to date." Where you found your own files is you
+talking about yourself.
+
+> The check script prints 62 and current-state.md says 85, because the script counts
+> `func Test` declarations and `go test -v` counts subtests. Both are right.
+
+Say nothing. Nobody asked, and it changes nothing they were going to do.
+
+Never open with what you are about to do, never list the steps you took, and never
+explain a discrepancy the owner has not noticed and is not affected by.
+
 
 Do not commit. Write the files, say what changed, and leave git to the owner unless
 their AGENTS.md says otherwise. Never put a `Co-Authored-By` trailer, a "Generated

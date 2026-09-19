@@ -3,7 +3,7 @@
 # Skills standard.
 #
 # The skill needs its whole directory, not just SKILL.md. VERSION, MIGRATIONS.md,
-# SETUP.md, CONTINUE.md, LEARNING.md, ORCHESTRATION.md, VOICE.md and templates/ all
+# SETUP.md, CONTINUE.md, LEARNING.md, ORCHESTRATION.md and templates/ all
 # travel with it, and every command fails without them.
 #
 # Most people should use the ecosystem installer instead:
@@ -21,7 +21,7 @@ REPO="https://github.com/adamalshoomary-ctrl/shotgun"
 SRC="$(cd "$(dirname "$0")" && pwd)"
 
 # Files the skill reads at runtime. Keep this list in step with SKILL.md.
-FILES="SKILL.md VERSION MIGRATIONS.md SETUP.md CONTINUE.md LEARNING.md ORCHESTRATION.md VOICE.md"
+FILES="SKILL.md VERSION MIGRATIONS.md SETUP.md CONTINUE.md LEARNING.md ORCHESTRATION.md"
 
 TMP=""
 if [ ! -f "$SRC/VERSION" ] || [ ! -d "$SRC/templates" ]; then

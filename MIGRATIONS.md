@@ -21,6 +21,57 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 3.0 (2026-09-19)
+
+Three removals and one addition. This is the first release that takes things away, so
+read all four points before presenting a plan.
+
+**VOICE.md is gone from the system.** Delete the file from the project root and delete
+the `## Voice` section from AGENTS.md. In its place the AGENTS.md template carries a
+`## Writing` section holding one instruction: write plainly, short sentences, no jargon,
+no term the owner has not used first.
+
+Ask the owner before deleting their VOICE.md. Some of them wrote their own rules into
+it and will want the text back, so show them the file and offer to move it somewhere the
+system does not manage. Never delete it silently.
+
+**Learning mode is on or off.** The `Learning mode:` line takes `on` or `off` in place
+of `0`, `1` and `2`. A project recorded as `2` or `1` becomes `on`. A project recorded
+as `0` becomes `off`. Level 2 no longer exists: an agent asks the owner nothing at the
+close of a finished item. Ask during the work instead, when an answer would change what
+gets built.
+
+**The explanation moved into current-state.md.** The per-item explainer file is gone.
+Add a `## What just changed and why` section to current-state.md, above
+`## Limits and unresolved observations`. When an item is finished and learning mode is
+on, rewrite that section in full so it explains that item to the owner, then say in one
+sentence that it is there. It holds the most recent item and nothing before it.
+
+Remove the `Explainer:` line from the queue's task block in improvement-plan.md, and
+remove the paragraph telling an agent to replace it. Leave `Explainer:` lines already
+written under finished tasks: they point at real files and are part of the record.
+
+An existing `learning/` directory is the owner's history. Leave every file in it exactly
+as it is, leave it out of the reading order, and tell the owner the system no longer
+writes there. Do not migrate old explainers into current-state.md; that section holds one
+item and merging years of them into it would defeat the change.
+
+`templates/.gitignore.template` no longer ignores `learning/` or `VOICE.md`. A project
+whose own .gitignore lists them can keep those lines, because the files may still exist.
+
+**Reporting rules are new and they bind.** AGENTS.md gains a `## Reporting to the owner`
+section, and the same rules sit in SKILL.md so they apply in a project set up before 3.0.
+Report what someone can now do that they should not be able to do, or what the owner can
+now do that they could not before. Six lines opens a session. No file paths, function
+names or queue identifiers unless the owner asks or has to open something themselves.
+
+Why all four: the owner of this project ran 2.x on real work for four days. He did not
+read the explainer files, described the level 2 questions as a tax, and could not read a
+session opener that was correct and dense. Each removal here is a feature that measured
+worse than nothing.
+
+---
+
 ## 2.9 (2026-09-15)
 
 `/handoff update` now updates the kit before it updates the project. It fetches the
