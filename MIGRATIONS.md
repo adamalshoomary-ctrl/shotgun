@@ -21,6 +21,21 @@ version recorded in the project's AGENTS.md.
 
 ---
 
+## 3.1 (2026-09-19)
+
+**Chat naming is new.** AGENTS.md gains a `## Naming the chat` section holding a
+`Chat prefix:` line. Ask the owner for a short project name, two words at most, and
+write it there. The rule: name the chat as the session opens, rename it once when the
+real subject is clear, then never again for the life of that chat. Where the platform
+cannot set a title, the agent prints the name instead, on those same two occasions.
+
+Why: every chat arrived called something like "handoff continuation", and a list of
+forty of them was unusable. Naming twice and no more is the owner's own constraint: a
+title that keeps moving is worse than a stale one, because he memorises a name, comes
+back for it, and finds it gone. A chat covering three subjects keeps its second name.
+
+---
+
 ## 3.0 (2026-09-19)
 
 Three removals and one addition. This is the first release that takes things away, so
@@ -58,12 +73,6 @@ item and merging years of them into it would defeat the change.
 
 `templates/.gitignore.template` no longer ignores `learning/` or `VOICE.md`. A project
 whose own .gitignore lists them can keep those lines, because the files may still exist.
-
-**Chat naming is new.** AGENTS.md gains a `## Naming the chat` section holding a
-`Chat prefix:` line. Ask the owner for a short project name, two words at most, and
-write it there. The rule: name the chat as the session opens, rename it once when the
-real subject is clear, then never again for the life of that chat. Where the platform
-cannot set a title, the agent prints the name instead, on those same two occasions.
 
 **Reporting rules are new and they bind.** AGENTS.md gains a `## Reporting to the owner`
 section, and the same rules sit in SKILL.md so they apply in a project set up before 3.0.
