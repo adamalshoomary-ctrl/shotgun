@@ -16,6 +16,10 @@ Read only the selected task's needed supporting files. Verify relevant claims
 against the actual source and evidence. If the task is unnecessary, contradictory,
 or rests on a weak assumption, explain that before implementing it.
 
+Name the chat as this session opens, `<prefix> <queue id>: <subject>`, taking the
+prefix from the `Chat prefix:` line in AGENTS.md. Rename it once when the real subject
+is clear, then leave it alone for good.
+
 Write plainly, including in code comments and commit messages. Short sentences, no
 jargon, no term I have not used first.
 

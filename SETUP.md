@@ -55,6 +55,10 @@ and neither one is startup reading. Adapt the model preference table to the owne
 platform, keeping every explicit choice the owner has stated. Install no profiles
 and change no global settings.
 
+Ask the owner for a short name for the project, two words at most, and write it into
+the `Chat prefix:` line of AGENTS.md. Every chat is titled with it, so a long one is a
+long title. Suggest one from the folder name and let them correct it.
+
 Ask the owner whether learning mode is on or off, and write it into AGENTS.md. The
 default is on. Say what each does in one sentence before asking: on rewrites a section
 of current-state.md in plain language every time an item is finished and tells them it

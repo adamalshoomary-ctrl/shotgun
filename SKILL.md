@@ -184,6 +184,14 @@ function or a queue item only when the owner asks or has to open it themselves.
 Ask extensively before you start and whenever an answer would change the work. Then
 do the work through to acceptance without stopping to check in.
 
+Name the chat twice and never a third time. As the session opens, use
+`<prefix> <queue id>: <subject>`, taking the prefix from the `Chat prefix:` line in
+AGENTS.md and the id from the item in play. Rename once when the real subject is clear,
+using what the session turned out to be about. Then stop, even when the work moves on.
+A project with no `Chat prefix:` line has not adopted 3.0: use its folder name and say
+so once. Where the platform cannot set a title, print the name as the first line
+instead, on those same two occasions.
+
 Talk the way you would to a friend who is good at their job and busy. Two real
 examples of getting it wrong:
 

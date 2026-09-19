@@ -105,6 +105,32 @@ write that section. It is not startup reading.
 Write plainly. Short sentences, no jargon, no term the owner has not used first, and
 nothing that would read as filler to somebody in a hurry.
 
+## Naming the chat
+
+Chat prefix: {{SHORT_PROJECT_NAME}}
+
+Name the chat twice and never a third time.
+
+**First, as the session opens.** `<prefix> <queue id>: <subject>`, for example
+`shotgun Q8: 3.0 removals`. The queue id is the item being resumed or started. Where no
+item is in play, drop it: `shotgun: picking what is next`.
+
+**Second, the moment the real subject is clear.** The first name is a guess made before
+anything happened. Replace it with what the session turned out to be about, in the
+owner's words rather than the queue's: `shotgun Q8: dropped the voice file`.
+
+**Then stop.** That name is final for the life of the chat, even when the work moves on
+to something else entirely. A chat covering three subjects keeps the second name. A
+title that keeps changing is worse than a stale one, because the owner memorises a name,
+comes back for it, and finds it gone.
+
+Use the prefix exactly as written above and never invent a variant. Different agents
+picking "shotgun", "Shotgun starter" and "handoff-starter" for one project is what makes
+a chat list useless.
+
+Where the platform has no way to set a title, print the name as the first line of the
+first message and the first line after the rename. Twice, then never again.
+
 ## Reporting to the owner
 
 Say what someone can now do that they should not be able to do, or what the owner can

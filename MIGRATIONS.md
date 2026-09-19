@@ -59,6 +59,12 @@ item and merging years of them into it would defeat the change.
 `templates/.gitignore.template` no longer ignores `learning/` or `VOICE.md`. A project
 whose own .gitignore lists them can keep those lines, because the files may still exist.
 
+**Chat naming is new.** AGENTS.md gains a `## Naming the chat` section holding a
+`Chat prefix:` line. Ask the owner for a short project name, two words at most, and
+write it there. The rule: name the chat as the session opens, rename it once when the
+real subject is clear, then never again for the life of that chat. Where the platform
+cannot set a title, the agent prints the name instead, on those same two occasions.
+
 **Reporting rules are new and they bind.** AGENTS.md gains a `## Reporting to the owner`
 section, and the same rules sit in SKILL.md so they apply in a project set up before 3.0.
 Report what someone can now do that they should not be able to do, or what the owner can

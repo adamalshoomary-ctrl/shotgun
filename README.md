@@ -114,7 +114,7 @@ project is missing, shows you a plan, and waits before changing anything.
 
 | File | Holds |
 | --- | --- |
-| `AGENTS.md` | The rules. Permissions, reading order, learning mode, how to report to you, what you have connected. |
+| `AGENTS.md` | The rules. Permissions, reading order, learning mode, chat naming, how to report to you, what you have connected. |
 | `project-purpose.md` | What you are building, for whom, and what is out of scope. |
 | `current-state.md` | What exists right now, what is unproven, and the plain-language explanation of the last finished task. |
 | `improvement-plan.md` | The task queue. Order, status, and what counts as done. |
